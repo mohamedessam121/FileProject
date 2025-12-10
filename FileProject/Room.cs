@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
+using static System.Windows.Forms.LinkLabel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FileProject
@@ -81,7 +82,7 @@ namespace FileProject
                 }
                 count += line.Length + 2;
                 fs.Seek(0, SeekOrigin.End);
-                
+
             }
         }
         private void button2_Click(object sender, EventArgs e)
@@ -131,9 +132,22 @@ namespace FileProject
         }
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {// room number
+            fs.Seek(0, SeekOrigin.Begin);
+            string line;
+            string[] field;
             string roomNumber = textBox1.Text;
             if (e.KeyCode == Keys.Enter)
             {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    field = line.Split('|');
+                    if (field[0] == textBox1.Text)
+                    {
+                        MessageBox.Show("Room is available!");
+                        textBox1.Clear();
+                        return;
+                    }
+                }
                 if (int.Parse(roomNumber) <= 0 || int.Parse(roomNumber) > 300)
                 {
                     MessageBox.Show("Room number mus be valid 0 to 300");
@@ -180,6 +194,11 @@ namespace FileProject
         }
 
         private void Room_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

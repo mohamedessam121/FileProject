@@ -23,7 +23,7 @@ namespace FileProject
         StreamWriter sw;
         string filename = "Reservation.txt";
         private void textBox6_KeyDown(object sender, KeyEventArgs e)
-        {// Customer ID
+        {// National ID
             if (e.KeyCode == Keys.Enter)
             {
                 if (textBox6.TextLength != 14)
@@ -58,8 +58,32 @@ namespace FileProject
         }
         private void textBox3_KeyDown(object sender, KeyEventArgs e)
         {// Room Number
+            fs.Seek(0, SeekOrigin.Begin);
+            string line;
+            string[] field;
+            
+            sw.Flush();
             if (e.KeyCode == Keys.Enter)
             {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    field = line.Split('|');
+                    if (field[3] == textBox3.Text)
+                    {
+                        if (line[0] != '*')
+                        {
+                            MessageBox.Show("Room is Booked!");
+                            textBox3.Clear();
+                            return;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Room is Deleted!");
+                            textBox3.Clear();
+                            return;
+                        }
+                    }
+                }
                 if (dateTimePicker1.Value >= dateTimePicker2.Value)
                 {
                     MessageBox.Show("Check-out date must be after check-in date!");
@@ -112,7 +136,7 @@ namespace FileProject
         {// display 
             fs.Seek(0, SeekOrigin.Begin);
             string line;
-            textBox5.Text = null; 
+            textBox5.Text = null;
             while ((line = sr.ReadLine()) != null)
             {
                 if (line[0] != '*')
@@ -210,27 +234,15 @@ namespace FileProject
 
         private void button10_Click(object sender, EventArgs e)
         {
-            string indexFile = "Index.txt";
-            FileStream indexFs = new FileStream(indexFile, FileMode.Create, FileAccess.Write);
-            StreamWriter indexWriter = new StreamWriter(indexFs);
-            fs.Seek(0, SeekOrigin.Begin); // ارجع لبداية Reservation.txt
-            string line;
-            while ((line = sr.ReadLine()) != null)
-            {
-                if (line[0] != '*')
-                {
-                    string[] field = line.Split('|');
-                    string nationalID = field[0];
-                    string roomNo = field[3];
-                    indexWriter.WriteLine(nationalID + "|" + roomNo);
-                    indexWriter.Flush();
-                }
-            }
 
-            MessageBox.Show("Index.txt has been created successfully!");
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }

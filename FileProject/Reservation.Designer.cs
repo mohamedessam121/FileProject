@@ -166,6 +166,7 @@
             textBox3.Size = new Size(153, 27);
             textBox3.TabIndex = 8;
             textBox3.UseWaitCursor = true;
+            textBox3.TextChanged += textBox3_TextChanged;
             textBox3.KeyDown += textBox3_KeyDown;
             // 
             // label3
@@ -469,7 +470,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(737, 739);
             Controls.Add(button8);
             Controls.Add(groupBox3);

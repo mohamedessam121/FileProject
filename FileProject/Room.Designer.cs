@@ -75,7 +75,7 @@
             // 
             button2.BackColor = Color.SteelBlue;
             button2.ForeColor = Color.White;
-            button2.Location = new Point(6, 103);
+            button2.Location = new Point(10, 107);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             button3.BackColor = Color.IndianRed;
             button3.ForeColor = Color.White;
-            button3.Location = new Point(137, 103);
+            button3.Location = new Point(135, 107);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 2;
@@ -99,7 +99,7 @@
             // 
             button4.BackColor = Color.Teal;
             button4.ForeColor = Color.White;
-            button4.Location = new Point(6, 154);
+            button4.Location = new Point(10, 154);
             button4.Name = "button4";
             button4.Size = new Size(94, 29);
             button4.TabIndex = 3;
@@ -147,6 +147,7 @@
             textBox1.Size = new Size(151, 27);
             textBox1.TabIndex = 7;
             textBox1.UseWaitCursor = true;
+            textBox1.TextChanged += textBox1_TextChanged;
             textBox1.KeyDown += textBox1_KeyDown;
             // 
             // textBox3
@@ -170,7 +171,7 @@
             textBox4.Location = new Point(6, 27);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(331, 301);
+            textBox4.Size = new Size(337, 301);
             textBox4.TabIndex = 12;
             // 
             // button5
@@ -201,7 +202,7 @@
             // 
             button7.BackColor = Color.DarkSlateGray;
             button7.ForeColor = Color.White;
-            button7.Location = new Point(137, 154);
+            button7.Location = new Point(135, 154);
             button7.Name = "button7";
             button7.Size = new Size(94, 29);
             button7.TabIndex = 15;
@@ -365,7 +366,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(683, 685);
             Controls.Add(label8);
             Controls.Add(label9);

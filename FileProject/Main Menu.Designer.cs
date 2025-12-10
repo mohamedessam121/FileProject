@@ -276,9 +276,9 @@
             label3.ForeColor = SystemColors.ActiveCaptionText;
             label3.Location = new Point(7, 59);
             label3.Name = "label3";
-            label3.Size = new Size(157, 25);
+            label3.Size = new Size(149, 25);
             label3.TabIndex = 39;
-            label3.Text = "Mohammed Esam";
+            label3.Text = "Mohamed Essam";
             // 
             // label2
             // 
@@ -288,9 +288,9 @@
             label2.ForeColor = SystemColors.ActiveCaptionText;
             label2.Location = new Point(7, 34);
             label2.Name = "label2";
-            label2.Size = new Size(157, 25);
+            label2.Size = new Size(165, 25);
             label2.TabIndex = 38;
-            label2.Text = "Abdelrhman Esam";
+            label2.Text = "Abdelrhman Essam";
             // 
             // label1
             // 
@@ -343,7 +343,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Menu;
+            BackColor = SystemColors.GradientActiveCaption;
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(567, 480);
             Controls.Add(groupBox2);
